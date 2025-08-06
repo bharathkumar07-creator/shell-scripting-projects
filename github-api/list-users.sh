@@ -1,5 +1,26 @@
 #!/bin/bash
 
+<< task
+About: The script is about collaborators means who are the users in a specific github organization
+Input:1. first you have to export your username
+      2. you should have to export your token name
+      3. Give required arguments to execute the script
+Owner:bharathkumar07-creator
+Date: Thu 7th Aug, 2025
+task
+
+#This function is added new to help the developers to know how many arguments should be passed to execute the script
+
+function helper {
+    expected_cmd_line_arguments=2
+    if [ $# -ne $expected_cmd_line_arguments ]; then
+        echo "invalid number of arguments"
+        echo "enter <nameOfTheScript <REPO_OWNER> <REPO_NAME>"
+        exit 1
+    fi
+}
+
+helper "$@" # Or you can also write "$#" -> "$@" means execute all positional arguments and "$#" means no. of arguments passed in the script
 # GitHub API URL
 API_URL="https://api.github.com"
 
